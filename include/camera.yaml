@@ -1,0 +1,7 @@
+- platform: mjpeg
+  name: Octoprint
+  mjpeg_url: !secret camera_octoprint_url
+
+- platform: uvc
+  nvr: !secret camera_uvc_nvr
+  key: !secret camera_uvc_key

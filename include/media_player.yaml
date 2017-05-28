@@ -1,0 +1,12 @@
+- platform: kodi
+  host: !secret media_player_kodi_host
+  port: !secret media_player_kodi_port
+  name: Kodi
+  user: !secret media_player_kodi_user
+
+- platform: samsungtv
+  host: !secret media_player_samsungtv_host
+  mac: !secret media_player_samsungtv_mac
+  name: Samsung TV
+  port: 8001
+  timeout: 30

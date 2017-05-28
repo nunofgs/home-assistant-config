@@ -1,0 +1,68 @@
+- platform: miflora
+  mac: !secret sensor_fiddle_leaf_mac
+  name: Fiddle Leaf
+  monitored_conditions:
+    - moisture
+    - light
+    - temperature
+    - conductivity
+    - battery
+
+- platform: miflora
+  mac: !secret sensor_monstera_deliciosa
+  name: Monstera deliciosa
+  monitored_conditions:
+    - moisture
+    - light
+    - temperature
+    - conductivity
+    - battery
+
+- platform: mqtt
+  name: 3D printer temperature
+  state_topic: /ha-3d-printer/temperature
+  unit_of_measurement: 'ºC'
+
+- platform: mqtt
+  name: 3D printer humidity
+  state_topic: /ha-3d-printer/humidity
+  unit_of_measurement: '%'
+
+- platform: mqtt
+  name: Dryer power usage
+  state_topic: /ha-dryer/power
+  unit_of_measurement: W
+
+- platform: mqtt
+  name: Washer power usage
+  state_topic: /ha-washer/power
+  unit_of_measurement: W
+
+- platform: octoprint
+  name: OctoPrint
+  monitored_conditions:
+    - Current State
+    - Temperatures
+    - Job Percentage
+
+- platform: plex
+  host: !secret sensor_plex_host
+  username: !secret sensor_plex_username
+  password: !secret sensor_plex_password
+
+- platform: speedtest
+  hour:
+    - 8
+    - 12
+    - 16
+    - 20
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+- platform: yr
+  monitored_conditions:
+    - precipitation
+    - temperature
+

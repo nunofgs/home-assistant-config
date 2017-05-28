@@ -1,0 +1,7 @@
+platform: polling
+api_key: !secret telegram_bot_api_key
+allowed_chat_ids:
+  - !secret notify_telegram_catarina_chat_id
+  - !secret notify_telegram_family_chat_id
+  - !secret notify_telegram_nuno_chat_id
+

@@ -1,0 +1,12 @@
+- name: catarina
+  platform: telegram
+  chat_id: !secret notify_telegram_catarina_chat_id
+
+- name: family
+  platform: telegram
+  chat_id: !secret notify_telegram_family_chat_id
+
+- name: nuno
+  platform: telegram
+  chat_id: !secret notify_telegram_nuno_chat_id
+

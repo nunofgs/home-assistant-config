@@ -1,0 +1,15 @@
+- platform: mqtt
+  name: Dryer status
+  device_class: power
+  state_topic: /ha-dryer/power
+  payload_on: "1"
+  payload_off: "0"
+  value_template: '{{ (value|int > 0)|int }}'
+
+- platform: mqtt
+  name: Washer status
+  device_class: power
+  state_topic: /ha-washer/power
+  payload_on: "1"
+  payload_off: "0"
+  value_template: '{{ (value|int > 0)|int }}'

@@ -1,0 +1,56 @@
+###  Global configuration  ###
+homeassistant:
+  name: Home
+  elevation: !secret homeassistant_elevation
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  time_zone: !secret homeassistant_time_zone
+  unit_system: metric
+  customize: !include include/customize.yaml
+  customize_glob: !include include/customize_glob.yaml
+
+http:
+  api_password: !secret http_api_password
+
+datadog:
+  host: !secret datadog_host
+  prefix: home-assistant
+
+mqtt:
+  broker: mosquitto
+  client_id: home-assistant
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+octoprint:
+  host: !secret octoprint_host
+  api_key: !secret octoprint_api_key
+
+zwave:
+  usb_path: /dev/ttyACM0
+  polling_interval: 60000
+
+### Components ###
+conversation:
+frontend:
+history:
+ios:
+logbook:
+logger:
+  default: error
+sun:
+updater:
+
+### Includes ###
+automation: !include automations.yaml
+binary_sensor: !include include/binary_sensor.yaml
+camera: !include include/camera.yaml
+device_tracker: !include include/device_tracker.yaml
+group: !include include/group.yaml
+media_player: !include include/media_player.yaml
+notify: !include include/notify.yaml
+sensor: !include include/sensor.yaml
+switch: !include include/switch.yaml
+telegram_bot: !include include/telegram_bot.yaml
+

@@ -1,0 +1,103 @@
+binary_sensor.front_door_sensor_7_0:
+  device_class: opening
+  friendly_name: Front door
+
+cover.bedroom_left_shutter_level_10_0:
+  friendly_name: Bedroom left shutter
+
+cover.bedroom_right_shutter_level_9_0:
+  friendly_name: Bedroom right shutter
+
+cover.guest_room_shutter_level_6_0:
+  friendly_name: Guest room shutter
+
+cover.kitchen_left_shutter_level_3_0:
+  friendly_name: Kitchen left shutter
+
+cover.kitchen_right_shutter_level_4_0:
+  friendly_name: Kitchen right shutter
+
+cover.living_room_shutter_level_2_0:
+  friendly_name: Living room shutter
+
+cover.office_shutter_level_5_0:
+  friendly_name: Office shutter
+
+group.all_automations:
+  hidden: false
+
+group.all_scripts:
+  hidden: false
+
+sensor.3d_printer_humidity:
+  friendly_name: Humidity
+
+sensor.3d_printer_temperature:
+  friendly_name: Temperature
+
+sensor.bedroom_left_shutter_power_10_4:
+  friendly_name: Bedroom left shutter power usage
+
+sensor.bedroom_right_shutter_power_9_4:
+  friendly_name: Bedroom right shutter power usage
+
+sensor.guest_room_shutter_power_6_4:
+  friendly_name: Guest room shutter power usage
+
+sensor.kitchen_left_shutter_power_3_4:
+  friendly_name: Kitchen left shutter power usage
+
+sensor.kitchen_right_shutter_power_4_4:
+  friendly_name: Kitchen right shutter power usage
+
+sensor.living_room_shutter_power_2_4:
+  friendly_name: Living room shutter power usage
+
+sensor.office_shutter_power_5_4:
+  friendly_name: Office shutter power usage
+
+sensor.octoprint_actual_bed_temp:
+  friendly_name: Bed temperature
+
+sensor.octoprint_actual_tool0_temp:
+  friendly_name: Hotend temperature
+
+sensor.octoprint_current_state:
+  friendly_name: Current state
+
+sensor.octoprint_job_percentage:
+  friendly_name: Job percentage
+
+sensor.speedtest_download:
+  friendly_name: "Download"
+  icon: mdi:arrow-down
+
+sensor.speedtest_ping:
+  friendly_name: "Ping"
+  icon: mdi:clock
+
+sensor.speedtest_upload:
+  friendly_name: "Upload"
+  icon: mdi:arrow-up
+
+sensor.yr_precipitation:
+  friendly_name: Precipitation
+  icon: mdi:water
+
+sensor.yr_temperature:
+  friendly_name: Temperature
+
+switch.guest_room_lights_switch_15_0:
+  friendly_name: Guest room lights
+
+switch.living_room_hallway_lights_switch_12_0:
+  friendly_name: Living room hallway lights
+
+switch.office_lights_switch_14_0:
+  friendly_name: Office lights
+
+switch.upstairs_hallway_and_stairs_lights_switch_13_0:
+  friendly_name: Stairs lights
+
+switch.upstairs_hallway_and_stairs_lights_switch_13_0_2:
+  friendly_name: Upstairs hallway lights

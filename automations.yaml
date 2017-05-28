@@ -1,0 +1,410 @@
+- id: close_bedroom_shutters_when_sun_sets
+  alias: 'Close bedroom shutters when sun sets'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -5
+  condition:
+    condition: state
+    entity_id: group.bedroom_covers
+    state: open
+  action:
+    - service: cover.close_cover
+      entity_id: group.bedroom_covers
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The bedroom shutters are closing
+
+- id: close_guest_room_shutters_when_sun_sets
+  alias: 'Close guest room shutters when sun sets'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -5
+  condition:
+    condition: state
+    entity_id: group.guest_room_covers
+    state: open
+  action:
+    - service: cover.close_cover
+      entity_id: group.guest_room_covers
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The guest room shutters are closing
+
+- id: close_kitchen_shutters_when_sun_sets
+  alias: 'Close kitchen shutters when sun sets'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -5
+  condition:
+    condition: state
+    entity_id: group.kitchen_covers
+    state: open
+  action:
+    - service: cover.close_cover
+      entity_id: group.kitchen_covers
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The kitchen shutters are closing
+
+- id: close_living_room_shutter_at_23_00
+  alias: 'Close living room shutter at 23:00'
+  trigger:
+    platform: time
+    after: '23:00:00'
+  condition:
+    condition: state
+    entity_id: group.living_room_covers
+    state: open
+  action:
+    - service: cover.close_cover
+      entity_id: group.living_room_covers
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The living room shutter is closing
+
+- id: close_office_shutters_when_sun_sets
+  alias: 'Close office shutters when sun sets'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -5
+  condition:
+    condition: state
+    entity_id: group.office_covers
+    state: open
+  action:
+    - service: cover.close_cover
+      entity_id: group.office_covers
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The office shutters are closing
+
+- id: lower_living_room_shutter_when_sun_sets
+  alias: 'Lower living room shutter when sun sets'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -5
+  condition:
+    condition: numeric_state
+    entity_id: cover.living_room_shutter_level_2_0
+    value_template: '{{ state.attributes.current_position }}'
+    above: 25
+  action:
+    - service: cover.set_cover_position
+      entity_id: group.living_room_covers
+      data:
+        position: 25
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The living room shutter is lowering to 25%
+
+- id: notify_if_front_door_was_opened_after_02_00
+  alias: 'Notify if front door was opened after 02:00'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_7_0
+    state: 'on'
+  condition:
+    condition: time
+    after: '02:00:00'
+  action:
+    service: notify.family
+    data:
+      message: The front door was opened after 02:00.
+      data:
+        photo:
+          url: !secret camera_front_door_url
+          caption: The front door was opened after 02:00.
+
+- id: notify_if_front_door_was_opened_and_nobody_is_home
+  alias: 'Notify if front door was opened and nobody is home'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_7_0
+    state: 'on'
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: not_home
+  action:
+    service: notify.family
+    data:
+      message: The front door was opened and nobody is home.
+      data:
+        photo:
+          url: !secret camera_front_door_url
+          caption: The front door was opened and nobody is home.
+
+- alias: 'Notify if dryer has finished'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dryer_status
+    state: 'off'
+    for:
+      minutes: 5
+  action:
+    service: notify.family
+    data:
+      message: The dryer has finished its cycle.
+
+- id: notify_if_mailbox_was_opened
+  alias: 'Notify if mailbox was opened'
+  trigger:
+    platform: mqtt
+    topic: /ha-mailbox/rssi/
+  action:
+    service: notify.family
+    data:
+      message: The mailbox was opened.
+
+- id: notify_if_washer_has_finished
+  alias: 'Notify if washer has finished'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washer_status
+    state: 'off'
+    for:
+      minutes: 5
+  action:
+    service: notify.family
+    data:
+      message: The washer has finished its cycle.
+
+- id: notify_if_family_is_visiting
+  alias: 'Notify if family is visiting'
+  trigger:
+    platform: state
+    entity_id: group.extended_family
+    state: home
+  condition:
+    condition: state
+    entity_id: group.family
+    state: not_home
+  action:
+    service: notify.family
+    data:
+      message: |
+        {%- for entity in states.group.extended_family.attributes.entity_id -%}
+          {%- if is_state(entity, 'home') %}
+            {{ states.device_tracker[entity.split('.')[1]].name }} is visiting.
+          {%- endif -%}
+        {%- endfor %}
+
+- id: notify_if_a_plant_needs_watering
+  alias: 'Notify if a plant needs watering'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.fiddle_leaf_moisture
+      below: 25
+    - platform: numeric_state
+      entity_id: sensor.monstera_deliciosa_moisture
+      below: 25
+  action:
+    service: notify.family
+    data_template:
+      message: The {{ trigger.to_state.name }} is at {{ trigger.to_state.state }}% and needs watering.
+
+- id: notify_if_printer_has_finished
+  alias: 'Notify if printer has finished'
+  trigger:
+    platform: state
+    entity_id: sensor.octoprint_current_state
+    from: 'Printing'
+  condition:
+    condition: numeric_state
+    entity_id: sensor.octoprint_job_percentage
+    above: 85
+  action:
+    service: notify.family
+    data:
+      message: Your print is finished.
+      data:
+        photo:
+          url: !secret camera_octoprint_url
+          caption: Your print is finished.
+
+- id: notify_if_it_starts_to_rain
+  alias: 'Notify if it starts to rain'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.yr_precipitation.state | int > 1 }}'
+  action:
+    service: notify.family
+    data:
+      message: It is currently {{ states.sensor.yr_temperature.state | int }}º C and raining {{ states.sensor.yr_precipitation.state }} mm.
+
+- id: open_bedroom_shutters_at_09_30_on_weekdays
+  alias: 'Open bedroom shutters at 09:30 on weekdays'
+  trigger:
+    platform: time
+    after: '09:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: group.bedroom_covers
+        state: closed
+  action:
+    - service: cover.set_cover_position
+      entity_id: group.bedroom_covers
+      data:
+        position: 75
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The bedroom shutters are rising to 75%
+
+- id: open_guest_room_shutter_at_09_30_on_weekdays
+  alias: 'Open guest room shutter at 09:30 on weekdays'
+  trigger:
+    platform: time
+    after: '09:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: group.guest_room_covers
+        state: closed
+  action:
+    - service: cover.set_cover_position
+      entity_id: group.guest_room_covers
+      data:
+        position: 75
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The guest room shutter are rising to 75%
+
+- id: open_kitchen_shutters_at_08_00
+  alias: 'Open kitchen shutters at 08:00'
+  trigger:
+    platform: time
+    after: '08:00:00'
+  condition:
+    condition: state
+    entity_id: group.kitchen_covers
+    state: closed
+  action:
+    - service: cover.set_cover_position
+      entity_id: group.kitchen_covers
+      data:
+        position: 75
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The kitchen shutters are rising to 75%
+
+- id: open_living_room_shutter_at_08_00
+  alias: 'Open living room shutter at 08:00'
+  trigger:
+    platform: time
+    after: '08:00:00'
+  condition:
+    condition: state
+    entity_id: group.living_room_covers
+    state: closed
+  action:
+    - service: cover.set_cover_position
+      entity_id: group.living_room_covers
+      data:
+        position: 75
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The living room shutter is rising to 75%
+
+- id: open_office_shutter_at_09_30_on_weekdays
+  alias: 'Open office shutter at 09:30 on weekdays'
+  trigger:
+    platform: time
+    after: '09:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: state
+        entity_id: group.office_covers
+        state: closed
+  action:
+    - service: cover.set_cover_position
+      entity_id: group.office_covers
+      data:
+        position: 75
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The office shutter are rising to 75%
+
+- id: turn_off_tv_if_everyone_leaves
+  alias: 'Turn off TV if everyone leaves'
+  trigger:
+    platform: state
+    entity_id: group.family
+    state: not_home
+  condition:
+    condition: state
+    entity_id: media_player.samsung_tv
+    state: 'on'
+  action:
+    - service: media_player.turn_off
+      entity_id: media_player.samsung_tv
+    - service: notify.family
+      data:
+        message: The TV was turned off because nobody is home

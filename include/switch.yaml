@@ -1,0 +1,13 @@
+- platform: mqtt
+  name: 3D Printer
+  state_topic: /ha-3d-printer/relay/0
+  command_topic: /ha-3d-printer/relay/0
+  payload_on: "1"
+  payload_off: "0"
+
+- platform: mqtt
+  name: Garage door
+  state_topic: /ha-garage-door/relay/switch
+  command_topic: /ha-garage-door/cmd
+  payload_on: "pulse,5,1,500"
+  payload_off: "pulse,5,1,500"
