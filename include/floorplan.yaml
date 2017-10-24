@@ -1,0 +1,9 @@
+name: Demo Floorplan
+image: /local/custom_ui/floorplan/floorplan.svg
+stylesheet: /local/custom_ui/floorplan/floorplan.css
+warnings:
+groups:
+  - name: thermostats_temp
+    entities:
+      - sensor.3d_printer_temperature
+    text_template: '${entity.state || "unknown"}'

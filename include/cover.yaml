@@ -1,0 +1,9 @@
+- platform: mqtt
+  name: Garage door
+  command_topic: /ha-garage-door/cmd
+  payload_open: 'pulse,5,1,500'
+  payload_close: 'pulse,5,1,500'
+  state_topic: /ha-garage-door/ultrasonic/distance
+  state_open: true
+  state_closed: false
+  value_template: '{{ 0 < value|int < 20 }}'

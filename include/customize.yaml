@@ -1,32 +1,40 @@
-binary_sensor.front_door_sensor_7_0:
+binary_sensor.backyard_multisensor_sensor:
+  friendly_name: Backyard motion
+
+binary_sensor.front_door_sensor:
   device_class: opening
   friendly_name: Front door
 
-cover.bedroom_left_shutter_level_10_0:
+cover.bedroom_left_shutter_level:
   friendly_name: Bedroom left shutter
 
-cover.bedroom_right_shutter_level_9_0:
+cover.bedroom_right_shutter_level:
   friendly_name: Bedroom right shutter
 
-cover.guest_room_shutter_level_6_0:
+cover.garage_door:
+  homebridge_cover_type: garage_door
+
+cover.guest_room_shutter_level:
   friendly_name: Guest room shutter
 
-cover.kitchen_left_shutter_level_3_0:
+cover.kitchen_left_shutter_level:
   friendly_name: Kitchen left shutter
 
-cover.kitchen_right_shutter_level_4_0:
+cover.kitchen_right_shutter_level:
   friendly_name: Kitchen right shutter
 
-cover.living_room_shutter_level_2_0:
+cover.living_room_shutter_level:
   friendly_name: Living room shutter
 
-cover.office_shutter_level_5_0:
+cover.office_shutter_level:
   friendly_name: Office shutter
 
 group.all_automations:
+  friendly_name: All automations
   hidden: false
 
 group.all_scripts:
+  friendly_name: All scripts
   hidden: false
 
 sensor.3d_printer_humidity:
@@ -35,25 +43,40 @@ sensor.3d_printer_humidity:
 sensor.3d_printer_temperature:
   friendly_name: Temperature
 
-sensor.bedroom_left_shutter_power_10_4:
+sensor.backyard_multisensor_luminance:
+  friendly_name: Backyard luminance
+
+sensor.backyard_multisensor_relative_humidity:
+  friendly_name: Backyard humidity
+
+sensor.backyard_multisensor_temperature:
+  friendly_name: Backyard temperature
+
+sensor.backyard_multisensor_ultraviolet:
+  friendly_name: Backyard ultraviolet radiation
+
+sensor.bedroom_left_shutter_power:
   friendly_name: Bedroom left shutter power usage
 
-sensor.bedroom_right_shutter_power_9_4:
+sensor.bedroom_right_shutter_power:
   friendly_name: Bedroom right shutter power usage
 
-sensor.guest_room_shutter_power_6_4:
+sensor.guest_room_shutter_power:
   friendly_name: Guest room shutter power usage
 
-sensor.kitchen_left_shutter_power_3_4:
+sensor.home_energy_usage:
+  icon: mdi:flash
+
+sensor.kitchen_left_shutter_power:
   friendly_name: Kitchen left shutter power usage
 
-sensor.kitchen_right_shutter_power_4_4:
+sensor.kitchen_right_shutter_power:
   friendly_name: Kitchen right shutter power usage
 
-sensor.living_room_shutter_power_2_4:
+sensor.living_room_shutter_power:
   friendly_name: Living room shutter power usage
 
-sensor.office_shutter_power_5_4:
+sensor.office_shutter_power:
   friendly_name: Office shutter power usage
 
 sensor.octoprint_actual_bed_temp:
@@ -86,18 +109,40 @@ sensor.yr_precipitation:
 
 sensor.yr_temperature:
   friendly_name: Temperature
+  homebridge_hidden: true
 
-switch.guest_room_lights_switch_15_0:
+switch.guest_bathroom_lights_switch:
+  friendly_name: Guest bathroom lights
+
+switch.guest_bathroom_lights_switch_2:
+  friendly_name: Guest bathroom mirror lights
+
+switch.guest_room_lights_switch:
   friendly_name: Guest room lights
 
-switch.living_room_hallway_lights_switch_12_0:
+switch.guest_room_lights_switch_2:
+  homebridge_hidden: true
+
+switch.living_room_hallway_lights_switch:
   friendly_name: Living room hallway lights
 
-switch.office_lights_switch_14_0:
+sensor.octoprint_target_bed_temp:
+  homebridge_hidden: true
+
+sensor.octoprint_target_tool0_temp:
+  homebridge_hidden: true
+
+switch.office_lights_switch:
   friendly_name: Office lights
 
-switch.upstairs_hallway_and_stairs_lights_switch_13_0:
+switch.office_lights_switch_2:
+  homebridge_hidden: true
+
+switch.living_room_hallway_lights_switch_2:
+  homebridge_hidden: true
+
+switch.upstairs_hallway_and_stairs_lights_switch:
   friendly_name: Stairs lights
 
-switch.upstairs_hallway_and_stairs_lights_switch_13_0_2:
+switch.upstairs_hallway_and_stairs_lights_switch_2:
   friendly_name: Upstairs hallway lights

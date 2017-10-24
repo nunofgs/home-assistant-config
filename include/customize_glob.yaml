@@ -1,16 +1,11 @@
-"cover.*_shutter_switch_*":
-  hidden: true
-  homebridge_hidden: true
-
-"cover.*_shutter_level_*":
+"cover.*_shutter_level":
   homebridge_cover_type: rollershutter
+
+"group.*":
+  homebridge_hidden: true
 
 "sensor.*_shutter_exporting_*":
   hidden: true
 
 "sensor.*_power_*":
   icon: mdi:flash
-
-"switch.*_shutter_switch*":
-  hidden: true
-  homebridge_hidden: true

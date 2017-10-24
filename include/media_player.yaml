@@ -5,8 +5,8 @@
   user: !secret media_player_kodi_user
 
 - platform: samsungtv
-  host: !secret media_player_samsungtv_host
-  mac: !secret media_player_samsungtv_mac
-  name: Samsung TV
+  host: !secret media_player_living_room_tv_host
+  mac: !secret media_player_living_room_tv_mac
+  name: Living Room TV
   port: 8001
   timeout: 30

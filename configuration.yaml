@@ -26,12 +26,14 @@ mqtt:
 octoprint:
   host: !secret octoprint_host
   api_key: !secret octoprint_api_key
+  bed: true
+  number_of_tools: 1
 
 zwave:
   usb_path: /dev/ttyACM0
-  polling_interval: 60000
 
 ### Components ###
+config:
 conversation:
 frontend:
 history:
@@ -46,10 +48,12 @@ updater:
 automation: !include automations.yaml
 binary_sensor: !include include/binary_sensor.yaml
 camera: !include include/camera.yaml
+cover: !include include/cover.yaml
 device_tracker: !include include/device_tracker.yaml
 group: !include include/group.yaml
 media_player: !include include/media_player.yaml
 notify: !include include/notify.yaml
+panel_custom: !include include/panel_custom.yaml
 sensor: !include include/sensor.yaml
 switch: !include include/switch.yaml
 telegram_bot: !include include/telegram_bot.yaml
