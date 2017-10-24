@@ -1,5 +1,7 @@
 ## Introduction
 
+[![build status][travis-image]][travis-url]
+
 This is my configuration for [Home Assistant](https://github.com/home-assistant/home-assistant). It is split into multiple files and is ready to go with the exception of the `secrets.yaml` file.
 
 Feel free to draw inspiration from it or make a suggestion in the [issues](https://github.com/nunofgs/home-assistant-config/issues)!
@@ -18,3 +20,6 @@ Feel free to draw inspiration from it or make a suggestion in the [issues](https
 ## License
 
 MIT
+
+[travis-image]: https://img.shields.io/travis/nunofgs/home-assistant-config.svg?style=flat-square
+[travis-url]: https://travis-ci.org/nunofgs/home-assistant-config
