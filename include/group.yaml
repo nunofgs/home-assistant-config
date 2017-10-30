@@ -76,6 +76,7 @@ Living room:
   - binary_sensor.front_door_sensor
   - cover.living_room_shutter_level
   - switch.living_room_hallway_lights_switch
+  - light.hatvlights
   - sensor.plex
   - media_player.kodi
   - media_player.living_room_tv

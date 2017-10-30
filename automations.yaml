@@ -509,3 +509,17 @@
     - service: notify.family
       data:
         message: The TV was turned off because nobody is home
+
+- id: turn_off_tv_lights_when_tv_is_turned_off
+  alias: 'Turn off TV lights when TV is turned off'
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_tv
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: light.hatvlights
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.hatvlights

@@ -19,6 +19,7 @@ datadog:
 mqtt:
   broker: mosquitto
   client_id: home-assistant
+  discovery: true
   keepalive: 60
   username: !secret mqtt_username
   password: !secret mqtt_password
