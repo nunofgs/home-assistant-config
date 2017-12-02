@@ -125,6 +125,19 @@
       data:
         message: The living room shutter is lowering to 25%
 
+- id: notify_if_dryer_has_finished
+  alias: 'Notify if dryer has finished'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dryer_status
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    service: notify.family
+    data:
+      message: The dryer has finished its cycle.
+
 - id: notify_if_front_door_was_opened_after_02_00
   alias: 'Notify if front door was opened after 02:00'
   trigger:
@@ -162,41 +175,6 @@
         photo:
           url: '{{ states.sensor.home_assistant_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'
           caption: The front door was opened and nobody is home.
-
-- alias: 'Notify if dryer has finished'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dryer_status
-    to: 'off'
-    for:
-      minutes: 5
-  action:
-    service: notify.family
-    data:
-      message: The dryer has finished its cycle.
-
-- id: notify_if_mailbox_was_opened
-  alias: 'Notify if mailbox was opened'
-  trigger:
-    platform: mqtt
-    topic: /ha-mailbox/rssi/
-  action:
-    service: notify.family
-    data:
-      message: The mailbox was opened.
-
-- id: notify_if_washer_has_finished
-  alias: 'Notify if washer has finished'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.washer_status
-    to: 'off'
-    for:
-      minutes: 5
-  action:
-    service: notify.family
-    data:
-      message: The washer has finished its cycle.
 
 - id: notify_if_family_is_visiting
   alias: 'Notify if family is visiting'
@@ -236,6 +214,48 @@
         photo:
           url: '{{ states.sensor.home_assistant_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'
           caption: The garage door is open and nobody is home.
+
+- id: notify_if_garage_door_was_opened_after_02_00
+  alias: 'Notify if garage door was opened after 02:00'
+  trigger:
+    platform: state
+    entity_id: cover.garage_door
+    to: 'open'
+  condition:
+    condition: time
+    after: '02:00:00'
+    before: '07:00:00'
+  action:
+    service: notify.family
+    data:
+      message: The garage door was opened after 02:00.
+      data:
+        photo:
+          url: '{{ states.sensor.home_assistant_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'
+          caption: The garage door was opened after 02:00.
+
+- id: notify_if_mailbox_was_opened
+  alias: 'Notify if mailbox was opened'
+  trigger:
+    platform: mqtt
+    topic: /ha-mailbox/rssi/
+  action:
+    service: notify.family
+    data:
+      message: The mailbox was opened.
+
+- id: notify_if_washer_has_finished
+  alias: 'Notify if washer has finished'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washer_status
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    service: notify.family
+    data:
+      message: The washer has finished its cycle.
 
 - id: notify_if_a_plant_needs_watering
   alias: 'Notify if a plant needs watering'
@@ -523,3 +543,62 @@
   action:
     - service: light.turn_off
       entity_id: light.hatvlights
+
+- id: turn_off_xmas_lights_at_02_00
+  alias: 'Turn off X-mas lights at 02:00'
+  trigger:
+    platform: time
+    at: '02:00:00'
+  condition:
+    condition: state
+    entity_id: switch.haxmaslights
+    state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.haxmaslights
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The X-mas lights were turned off
+
+- id: turn_off_xmas_lights_if_everyone_leaves
+  alias: 'Turn off X-mas lights if everyone leaves'
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: not_home
+  condition:
+    condition: state
+    entity_id: switch.haxmaslights
+    state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.haxmaslights
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The X-mas lights were turned off
+
+- id: turn_on_xmas_lights_when_someone_arrives
+  alias: 'Turn on X-mas lights when someone arrives'
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: home
+  condition:
+    condition: state
+    entity_id: switch.haxmaslights
+    state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.haxmaslights
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - service: notify.family
+      data:
+        message: The X-mas lights were turned on

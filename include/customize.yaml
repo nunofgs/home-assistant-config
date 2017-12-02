@@ -126,6 +126,9 @@ switch.guest_room_lights_switch:
 switch.guest_room_lights_switch_2:
   homebridge_hidden: true
 
+switch.haxmaslights:
+  friendly_name: X-mas lights
+
 switch.living_room_hallway_lights_switch:
   friendly_name: Living room hallway lights
 
