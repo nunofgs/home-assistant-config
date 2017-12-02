@@ -41,7 +41,7 @@ history:
 ios:
 logbook:
 logger:
-  default: error
+  default: info
 sun:
 updater:
 
