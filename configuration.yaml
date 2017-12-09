@@ -49,6 +49,7 @@ updater:
 automation: !include automations.yaml
 binary_sensor: !include include/binary_sensor.yaml
 camera: !include include/camera.yaml
+climate: !include include/climate.yaml
 cover: !include include/cover.yaml
 device_tracker: !include include/device_tracker.yaml
 group: !include include/group.yaml
