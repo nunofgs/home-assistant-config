@@ -2,6 +2,7 @@
   host: !secret device_tracker_unifi_host
   username: !secret device_tracker_unifi_username
   password: !secret device_tracker_unifi_password
-  track_new_devices: no
   verify_ssl: no
   interval_seconds: 30
+  new_device_defaults:
+    track_new_devices: no

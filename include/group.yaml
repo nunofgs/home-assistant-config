@@ -1,11 +1,10 @@
 default_view:
   view: yes
   entities:
-    - group.backyard
     - group.basement
     - group.bedroom
     - group.guest_bathroom
-    - group.guest_room
+    - group.iness_room
     - group.kitchen
     - group.living_room
     - group.octoprint
@@ -44,13 +43,6 @@ Configuration:
 
 # Default view
 
-Backyard:
-  - sensor.backyard_multisensor_relative_humidity
-  - sensor.backyard_multisensor_luminance
-  - sensor.backyard_multisensor_temperature
-  - sensor.backyard_multisensor_ultraviolet
-  - binary_sensor.backyard_multisensor_sensor
-
 Basement:
   - binary_sensor.dryer_status
   - binary_sensor.washer_status
@@ -59,20 +51,28 @@ Basement:
 Bedroom:
   - cover.bedroom_left_shutter_level
   - cover.bedroom_right_shutter_level
+  - climate.bedroom_ac
 
 Guest bathroom:
   - switch.guest_bathroom_lights_switch
   - switch.guest_bathroom_lights_switch_2
 
-Guest room:
-  - cover.guest_room_shutter_level
-  - switch.guest_room_lights_switch
+Inês's room:
+  - cover.ines_room_shutter_level
+  - switch.ines_room_lights_switch
+  - climate.iness_room_ac
 
 Kitchen:
   - cover.kitchen_left_shutter_level
   - cover.kitchen_right_shutter_level
+  - climate.kitchen_ac
 
 Living room:
+  - sensor.living_room_multisensor_relative_humidity
+  - sensor.living_room_multisensor_luminance
+  - sensor.living_room_multisensor_temperature
+  - sensor.living_room_multisensor_ultraviolet
+  - binary_sensor.living_room_multisensor_sensor
   - binary_sensor.front_door_sensor
   - cover.living_room_shutter_level
   - switch.living_room_hallway_lights_switch
@@ -137,7 +137,6 @@ Monstera Deliciosa:
 # Energy
 
 Battery:
-  - sensor.backyard_multisensor_battery
   - sensor.front_door_battery
   - sensor.fiddle_leaf_battery
   - sensor.grass_battery
@@ -149,7 +148,7 @@ Power usage:
   - sensor.washer_power_usage
   - sensor.bedroom_left_shutter_power
   - sensor.bedroom_right_shutter_power
-  - sensor.guest_room_shutter_power
+  - sensor.ines_room_shutter_power
   - sensor.kitchen_left_shutter_power
   - sensor.kitchen_right_shutter_power
   - sensor.living_room_shutter_power
@@ -172,8 +171,8 @@ Bedroom covers:
   - cover.bedroom_left_shutter_level
   - cover.bedroom_right_shutter_level
 
-Guest room covers:
-  - cover.guest_room_shutter_level
+Inês's room covers:
+  - cover.ines_room_shutter_level
 
 Kitchen covers:
   - cover.kitchen_left_shutter_level

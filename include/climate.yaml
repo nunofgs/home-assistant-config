@@ -1,4 +1,67 @@
 - platform: broadlink
+  name: Bedroom AC
+  host: !secret climate_bedroom_ac_host
+  mac: !secret climate_bedroom_ac_mac
+  ircodes_ini: 'custom_components/gree_ac.ini'
+  min_temp: 16
+  max_temp: 30
+  target_temp: 20
+  default_operation: idle
+  default_fan_mode: mid
+  customize:
+    operations:
+      - idle
+      - cool
+      - heat
+    fan_modes:
+      - low
+      - mid
+      - high
+      - auto
+
+- platform: broadlink
+  name: Inês's room AC
+  host: !secret climate_ines_room_ac_host
+  mac: !secret climate_ines_room_ac_mac
+  ircodes_ini: 'custom_components/gree_ac.ini'
+  min_temp: 16
+  max_temp: 30
+  target_temp: 20
+  default_operation: idle
+  default_fan_mode: mid
+  customize:
+    operations:
+      - idle
+      - cool
+      - heat
+    fan_modes:
+      - low
+      - mid
+      - high
+      - auto
+
+- platform: broadlink
+  name: Kitchen AC
+  host: !secret climate_kitchen_ac_host
+  mac: !secret climate_kitchen_ac_mac
+  ircodes_ini: 'custom_components/gree_ac.ini'
+  min_temp: 16
+  max_temp: 30
+  target_temp: 20
+  default_operation: idle
+  default_fan_mode: mid
+  customize:
+    operations:
+      - idle
+      - cool
+      - heat
+    fan_modes:
+      - low
+      - mid
+      - high
+      - auto
+
+- platform: broadlink
   name: Living room AC
   host: !secret climate_living_room_ac_host
   mac: !secret climate_living_room_ac_mac
@@ -6,6 +69,7 @@
   min_temp: 16
   max_temp: 30
   target_temp: 20
+  temp_sensor: sensor.living_room_multisensor_temperature
   default_operation: idle
   default_fan_mode: mid
   customize:

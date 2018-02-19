@@ -79,13 +79,6 @@
 
 - platform: template
   sensors:
-    backyard_multisensor_battery:
-      value_template: '{{ states.zwave.backyard_multisensor.attributes.battery_level }}'
-      friendly_name: Backyard multisensor battery
-      unit_of_measurement: '%'
-
-- platform: template
-  sensors:
     front_door_battery:
       value_template: '{{ states.zwave.front_door.attributes.battery_level }}'
       friendly_name: Front door sensor battery

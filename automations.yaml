@@ -19,8 +19,8 @@
       data:
         message: The bedroom shutters are closing
 
-- id: close_guest_room_shutter_when_sun_sets
-  alias: 'Close guest room shutter when sun sets'
+- id: close_iness_room_shutter_when_sun_sets
+  alias: "Close Inês's room shutter when sun sets"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -28,17 +28,17 @@
     below: -5
   condition:
     condition: state
-    entity_id: group.guest_room_covers
+    entity_id: group.iness_room_covers
     state: open
   action:
     - service: cover.close_cover
-      entity_id: group.guest_room_covers
+      entity_id: group.iness_room_covers
     - condition: state
       entity_id: group.family
       state: not_home
     - service: notify.family
       data:
-        message: The guest room shutter is closing
+        message: Inês's room shutter is closing
 
 - id: close_kitchen_shutters_when_sun_sets
   alias: 'Close kitchen shutters when sun sets'
@@ -357,8 +357,8 @@
       data:
         message: The bedroom shutters are rising to 50%
 
-- id: open_guest_room_shutter_at_09_30_on_weekdays
-  alias: 'Open guest room shutter at 09:30 on weekdays'
+- id: open_ines_room_shutter_at_09_30_on_weekdays
+  alias: "Open Inês's room shutter at 09:30 on weekdays"
   trigger:
     platform: time
     at: '09:30:00'
@@ -373,11 +373,11 @@
           - thu
           - fri
       - condition: state
-        entity_id: group.guest_room_covers
+        entity_id: group.iness_room_covers
         state: closed
   action:
     - service: cover.set_cover_position
-      entity_id: group.guest_room_covers
+      entity_id: group.iness_room_covers
       data:
         position: 50
     - condition: state
@@ -385,10 +385,10 @@
       state: not_home
     - service: notify.family
       data:
-        message: The guest room shutter is rising to 50%
+        message: Inês's room shutter is rising to 50%
 
-- id: open_guest_room_shutter_at_13_00_on_weekends
-  alias: 'Open guest room shutter at 13:00 on weekends'
+- id: open_iness_room_shutter_at_13_00_on_weekends
+  alias: "Open Inês's room shutter at 13:00 on weekends"
   trigger:
     platform: time
     at: '13:00:00'
@@ -400,11 +400,11 @@
           - sat
           - sun
       - condition: state
-        entity_id: group.guest_room_covers
+        entity_id: group.ines_room_covers
         state: closed
   action:
     - service: cover.set_cover_position
-      entity_id: group.guest_room_covers
+      entity_id: group.iness_room_covers
       data:
         position: 50
     - condition: state
@@ -412,7 +412,7 @@
       state: not_home
     - service: notify.family
       data:
-        message: The guest room shutter is rising to 50%
+        message: Inês's room shutter is rising to 50%
 
 - id: open_kitchen_shutters_at_08_00
   alias: 'Open kitchen shutters at 08:00'

@@ -1,5 +1,5 @@
-binary_sensor.backyard_multisensor_sensor:
-  friendly_name: Backyard motion
+binary_sensor.living_room_multisensor_sensor:
+  friendly_name: Living room motion
 
 binary_sensor.front_door_sensor:
   device_class: opening
@@ -14,8 +14,8 @@ cover.bedroom_right_shutter_level:
 cover.garage_door:
   homebridge_cover_type: garage_door
 
-cover.guest_room_shutter_level:
-  friendly_name: Guest room shutter
+cover.ines_room_shutter_level:
+  friendly_name: Inês's room shutter
 
 cover.kitchen_left_shutter_level:
   friendly_name: Kitchen left shutter
@@ -46,17 +46,17 @@ sensor.3d_printer_humidity:
 sensor.3d_printer_temperature:
   friendly_name: Temperature
 
-sensor.backyard_multisensor_luminance:
-  friendly_name: Backyard luminance
+sensor.living_room_multisensor_luminance:
+  friendly_name: Living room luminance
 
-sensor.backyard_multisensor_relative_humidity:
-  friendly_name: Backyard humidity
+sensor.living_room_multisensor_relative_humidity:
+  friendly_name: Living room humidity
 
-sensor.backyard_multisensor_temperature:
-  friendly_name: Backyard temperature
+sensor.living_room_multisensor_temperature:
+  friendly_name: Living room temperature
 
-sensor.backyard_multisensor_ultraviolet:
-  friendly_name: Backyard ultraviolet radiation
+sensor.living_room_multisensor_ultraviolet:
+  friendly_name: Living room ultraviolet radiation
 
 sensor.bedroom_left_shutter_power:
   friendly_name: Bedroom left shutter power usage
@@ -64,8 +64,8 @@ sensor.bedroom_left_shutter_power:
 sensor.bedroom_right_shutter_power:
   friendly_name: Bedroom right shutter power usage
 
-sensor.guest_room_shutter_power:
-  friendly_name: Guest room shutter power usage
+sensor.ines_room_shutter_power:
+  friendly_name: Inês's room shutter power usage
 
 sensor.home_energy_usage:
   icon: mdi:flash
@@ -120,10 +120,10 @@ switch.guest_bathroom_lights_switch:
 switch.guest_bathroom_lights_switch_2:
   friendly_name: Guest bathroom mirror lights
 
-switch.guest_room_lights_switch:
-  friendly_name: Guest room lights
+switch.ines_room_lights_switch:
+  friendly_name: Inês's room lights
 
-switch.guest_room_lights_switch_2:
+switch.ines_room_lights_switch_2:
   homebridge_hidden: true
 
 switch.haxmaslights:
