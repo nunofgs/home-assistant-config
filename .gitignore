@@ -1,5 +1,7 @@
 /*
+__pycache__
 !.travis*
 !automations.yaml
 !configuration.yaml
+!custom_components
 !include/
