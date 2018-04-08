@@ -17,6 +17,7 @@ People:
   entities:
     - group.family
     - group.extended_family
+    - group.location
 
 Plants:
   view: yes
@@ -113,6 +114,9 @@ Family:
 Extended family:
   - device_tracker.andre
   - device_tracker.flavia
+
+Location:
+  - sensor.nunos_location
 
 # Plants
 

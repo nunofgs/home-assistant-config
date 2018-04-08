@@ -50,6 +50,11 @@
   value_template: '{{ value|int * 3600 / 60 }}'
 
 - platform: mqtt
+  name: "Nuno's location"
+  state_topic: !secret sensor_find_nuno_state_topic
+  value_template: '{{ value_json.guesses[0].location }}'
+
+- platform: mqtt
   name: Washer power usage
   state_topic: /ha-washer/power
   unit_of_measurement: W

@@ -79,6 +79,9 @@ sensor.kitchen_right_shutter_power:
 sensor.living_room_shutter_power:
   friendly_name: Living room shutter power usage
 
+sensor.nunos_location:
+  friendly_name: Nuno
+
 sensor.office_shutter_power:
   friendly_name: Office shutter power usage
 

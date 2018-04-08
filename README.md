@@ -16,6 +16,7 @@ Feel free to draw inspiration from it or make a suggestion in the [issues](https
 * Notifications when the mailman drops off mail
 * Plant moisture detection
 * Presence detection with home intrusion support
+* Room presence using [FIND3](https://github.com/schollz/find3)
 
 ## License
 
