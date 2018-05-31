@@ -503,6 +503,36 @@
       data:
         message: The office shutter is rising to 50%
 
+- id: turn_off_lights_if_everyone_leaves
+  alias: 'Turn off lights if everyone leaves'
+  trigger:
+    platform: state
+    entity_id: group.family
+    to: not_home
+  condition:
+    condition: state
+    entity_id: group.all_lights
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: notify.family
+      data:
+        message: The lights were turned off because nobody is home
+
+- id: turn_off_living_room_lamp_at_23_00
+  alias: 'Turn off living room lamp at 23:00'
+  trigger:
+    platform: time
+    at: '23:00:00'
+  condition:
+    condition: state
+    entity_id: light.living_room_lamp
+    state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.living_room_lamp
+
 - id: turn_off_tv_if_everyone_leaves
   alias: 'Turn off TV if everyone leaves'
   trigger:
@@ -572,6 +602,24 @@
     - service: notify.family
       data:
         message: The X-mas lights were turned off
+
+- id: turn_on_living_room_lamp_when_sun_sets
+  alias: 'Turn on living room lamp when sun sets'
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: home
+      - condition: state
+        entity_id: light.living_room_lamp
+        state: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: light.living_room_lamp
 
 - id: turn_on_xmas_lights_when_someone_arrives
   alias: 'Turn on X-mas lights when someone arrives'

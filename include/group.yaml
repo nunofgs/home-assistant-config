@@ -77,7 +77,8 @@ Living room:
   - binary_sensor.front_door_sensor
   - cover.living_room_shutter_level
   - switch.living_room_hallway_lights_switch
-  - light.hatvlights
+  - light.living_room_lamp
+  - light.tv_lights
   - switch.haxmaslights
   - climate.living_room_ac
   - sensor.plex

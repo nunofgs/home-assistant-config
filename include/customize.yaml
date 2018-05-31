@@ -37,8 +37,8 @@ group.all_scripts:
   friendly_name: All scripts
   hidden: false
 
-light.hatvlights:
-  friendly_name: TV lights
+light.living_room_lamp:
+  friendly_name: Lamp
 
 sensor.3d_printer_humidity:
   friendly_name: Humidity

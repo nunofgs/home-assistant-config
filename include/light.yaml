@@ -1,0 +1,26 @@
+- name: Living Room Lamp
+  platform: mqtt
+  state_topic: /ha-living-room-lamp/relay/0
+  command_topic: /ha-living-room-lamp/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /ha-living-room-lamp/status
+  payload_available: 1
+  payload_not_available: 0
+
+- name: TV Lights
+  platform: mqtt
+  state_topic: /ha-tv-lights/relay/0
+  command_topic: /ha-tv-lights/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /ha-tv-lights/status
+  payload_available: 1
+  payload_not_available: 0
+  brightness_state_topic: /ha-tv-lights/brightness
+  brightness_command_topic: /ha-tv-lights/brightness/set
+  rgb_state_topic: /ha-tv-lights/rgb
+  rgb_command_topic: /ha-tv-lights/rgb/set
+  color_temp_command_topic: /ha-tv-lights/mired/set
+  white_value_state_topic: /ha-tv-lights/channel/3
+  white_value_command_topic: /ha-tv-lights/channel/3/set
