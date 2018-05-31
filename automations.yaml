@@ -251,7 +251,16 @@
   alias: 'Notify if a plant needs watering'
   trigger:
     - platform: numeric_state
+      entity_id: sensor.citrus_hystrix_moisture
+      below: 25
+    - platform: numeric_state
+      entity_id: sensor.ficus_benjamina_moisture
+      below: 25
+    - platform: numeric_state
       entity_id: sensor.fiddle_leaf_moisture
+      below: 25
+    - platform: numeric_state
+      entity_id: sensor.grass_moisture
       below: 25
     - platform: numeric_state
       entity_id: sensor.monstera_deliciosa_moisture

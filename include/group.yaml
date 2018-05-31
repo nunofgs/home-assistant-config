@@ -24,6 +24,8 @@ People:
 Plants:
   view: yes
   entities:
+    - group.citrus_hystrix
+    - group.ficus_benjamina
     - group.fiddle_leaf
     - group.grass
     - group.monstera_deliciosa
@@ -124,6 +126,18 @@ Location:
 
 # Plants
 
+Citrus Hystrix:
+  - sensor.citrus_hystrix_conductivity
+  - sensor.citrus_hystrix_light_intensity
+  - sensor.citrus_hystrix_moisture
+  - sensor.citrus_hystrix_temperature
+
+Ficus Benjamina:
+  - sensor.ficus_benjamina_conductivity
+  - sensor.ficus_benjamina_light_intensity
+  - sensor.ficus_benjamina_moisture
+  - sensor.ficus_benjamina_temperature
+
 Fiddle Leaf:
   - sensor.fiddle_leaf_conductivity
   - sensor.fiddle_leaf_light_intensity
@@ -146,6 +160,8 @@ Monstera Deliciosa:
 
 Battery:
   - sensor.front_door_battery
+  - sensor.citrus_hystrix_battery
+  - sensor.ficus_benjamina_battery
   - sensor.fiddle_leaf_battery
   - sensor.grass_battery
   - sensor.monstera_deliciosa_battery
