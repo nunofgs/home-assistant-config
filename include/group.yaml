@@ -54,6 +54,7 @@ Basement:
 Bedroom:
   - cover.bedroom_left_shutter_level
   - cover.bedroom_right_shutter_level
+  - light.bedroom_lamp
   - climate.bedroom_ac
 
 Guest bathroom:

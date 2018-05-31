@@ -1,3 +1,8 @@
+- platform: yeelight
+  devices:
+    192.168.1.247:
+      name: Bedroom Lamp
+
 - name: Living Room Lamp
   platform: mqtt
   state_topic: /ha-living-room-lamp/relay/0
