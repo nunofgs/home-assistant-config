@@ -1,10 +1,8 @@
 - id: close_bedroom_shutters_when_sun_sets
   alias: 'Close bedroom shutters when sun sets'
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: -5
+    platform: sun
+    event: sunset
   condition:
     condition: state
     entity_id: group.bedroom_covers
@@ -22,10 +20,8 @@
 - id: close_iness_room_shutter_when_sun_sets
   alias: "Close Inês's room shutter when sun sets"
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: -5
+    platform: sun
+    event: sunset
   condition:
     condition: state
     entity_id: group.iness_room_covers
@@ -43,10 +39,8 @@
 - id: close_kitchen_shutters_when_sun_sets
   alias: 'Close kitchen shutters when sun sets'
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: -5
+    platform: sun
+    event: sunset
   condition:
     condition: state
     entity_id: group.kitchen_covers
@@ -83,10 +77,8 @@
 - id: close_office_shutter_when_sun_sets
   alias: 'Close office shutter when sun sets'
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: -5
+    platform: sun
+    event: sunset
   condition:
     condition: state
     entity_id: group.office_covers
@@ -104,10 +96,8 @@
 - id: lower_living_room_shutter_when_sun_sets
   alias: 'Lower living room shutter when sun sets'
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: -5
+    platform: sun
+    event: sunset
   condition:
     condition: numeric_state
     entity_id: cover.living_room_shutter_level
