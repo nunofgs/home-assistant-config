@@ -5,3 +5,4 @@
 - platform: uvc
   nvr: !secret camera_uvc_nvr
   key: !secret camera_uvc_key
+  password: !secret camera_uvc_password
