@@ -15,7 +15,7 @@ from homeassistant.helpers.restore_state import async_get_last_state
 from configparser import ConfigParser
 from base64 import b64encode, b64decode
 
-REQUIREMENTS = ['broadlink==0.5']
+REQUIREMENTS = ['broadlink==0.9.0']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -58,11 +58,11 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_MIN_TEMP, default=DEFAULT_MIN_TEMP): cv.positive_int,
     vol.Optional(CONF_MAX_TEMP, default=DEFAULT_MAX_TEMP): cv.positive_int,
     vol.Optional(CONF_TARGET_TEMP, default=DEFAULT_TARGET_TEMP): cv.positive_int,
-    vol.Optional(CONF_TEMP_SENSOR, default=None): cv.entity_id,
+    vol.Optional(CONF_TEMP_SENSOR): cv.entity_id,
     vol.Optional(CONF_CUSTOMIZE, default={}): CUSTOMIZE_SCHEMA,
     vol.Optional(CONF_DEFAULT_OPERATION, default=DEFAULT_OPERATION): cv.string,
     vol.Optional(CONF_DEFAULT_FAN_MODE, default=DEFAULT_FAN_MODE): cv.string,
-    vol.Optional(CONF_DEFAULT_OPERATION_FROM_IDLE, default=None): cv.string
+    vol.Optional(CONF_DEFAULT_OPERATION_FROM_IDLE): cv.string
 })
 
 @asyncio.coroutine
@@ -85,7 +85,7 @@ def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
     
     import broadlink
     
-    broadlink_device = broadlink.rm((ip_addr, 80), mac_addr)
+    broadlink_device = broadlink.rm((ip_addr, 80), mac_addr, None)
     broadlink_device.timeout = config.get(CONF_TIMEOUT)
 
     try:
