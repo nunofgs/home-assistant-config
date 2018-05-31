@@ -45,9 +45,8 @@
 
 - platform: mqtt
   name: Home power usage
-  state_topic: /ha-breaker-box/energy/Count
-  unit_of_measurement: W
-  value_template: '{{ value|int * 3600 / 60 }}'
+  state_topic: /ha-breaker-box/energy/PowerWh
+  unit_of_measurement: Wh
 
 - platform: mqtt
   name: "Nuno's location"
