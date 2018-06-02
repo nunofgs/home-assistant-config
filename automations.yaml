@@ -356,7 +356,7 @@
       data:
         message: The bedroom shutters are rising to 50%
 
-- id: open_ines_room_shutter_at_09_30_on_weekdays
+- id: open_iness_room_shutter_at_09_30_on_weekdays
   alias: "Open Inês's room shutter at 09:30 on weekdays"
   trigger:
     platform: time
@@ -399,7 +399,7 @@
           - sat
           - sun
       - condition: state
-        entity_id: group.ines_room_covers
+        entity_id: group.iness_room_covers
         state: closed
   action:
     - service: cover.set_cover_position
