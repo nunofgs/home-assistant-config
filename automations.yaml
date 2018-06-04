@@ -512,6 +512,14 @@
       data:
         message: The office shutter is rising to 50%
 
+- id: start_homekit_after_zwave_network_ready
+  alias: 'Start HomeKit after Z-Wave network is ready'
+  trigger:
+    - platform: event
+      event_type: zwave.network_ready
+  action:
+    - service: homekit.start
+
 - id: turn_off_lights_if_everyone_leaves
   alias: 'Turn off lights if everyone leaves'
   trigger:

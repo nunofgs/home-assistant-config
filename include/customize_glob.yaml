@@ -1,9 +1,3 @@
-"cover.*_shutter_level":
-  homebridge_cover_type: rollershutter
-
-"group.*":
-  homebridge_hidden: true
-
 "sensor.*_shutter_exporting_*":
   hidden: true
 

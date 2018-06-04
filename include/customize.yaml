@@ -11,9 +11,6 @@ cover.bedroom_left_shutter_level:
 cover.bedroom_right_shutter_level:
   friendly_name: Bedroom right shutter
 
-cover.garage_door:
-  homebridge_cover_type: garage_door
-
 cover.ines_room_shutter_level:
   friendly_name: Inês's room shutter
 
@@ -115,7 +112,6 @@ sensor.yr_precipitation:
 
 sensor.yr_temperature:
   friendly_name: Temperature
-  homebridge_hidden: true
 
 switch.guest_bathroom_lights_switch:
   friendly_name: Guest bathroom lights
@@ -126,29 +122,14 @@ switch.guest_bathroom_lights_switch_2:
 switch.ines_room_lights_switch:
   friendly_name: Inês's room lights
 
-switch.ines_room_lights_switch_2:
-  homebridge_hidden: true
-
 switch.haxmaslights:
   friendly_name: X-mas lights
 
 switch.living_room_hallway_lights_switch:
   friendly_name: Living room hallway lights
 
-sensor.octoprint_target_bed_temp:
-  homebridge_hidden: true
-
-sensor.octoprint_target_tool0_temp:
-  homebridge_hidden: true
-
 switch.office_lights_switch:
   friendly_name: Office lights
-
-switch.office_lights_switch_2:
-  homebridge_hidden: true
-
-switch.living_room_hallway_lights_switch_2:
-  homebridge_hidden: true
 
 switch.upstairs_hallway_and_stairs_lights_switch:
   friendly_name: Stairs lights

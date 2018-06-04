@@ -16,6 +16,16 @@ datadog:
   host: !secret datadog_host
   prefix: home-assistant
 
+homekit:
+  auto_start: False
+  filter:
+    exclude_domains:
+      - device_tracker
+      - sensor
+    exclude_entities:
+      - switch.ines_room_lights_switch_2
+      - switch.office_lights_switch_2
+
 mqtt:
   broker: mosquitto
   client_id: home-assistant
