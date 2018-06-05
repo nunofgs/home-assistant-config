@@ -40,6 +40,13 @@ octoprint:
   bed: true
   number_of_tools: 1
 
+recorder:
+  purge_keep_days: 5
+  exclude:
+    domains:
+      - group
+      - zwave
+
 zwave:
   usb_path: /dev/ttyACM0
 
