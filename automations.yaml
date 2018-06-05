@@ -608,18 +608,39 @@
       data:
         message: The X-mas lights were turned off
 
-- id: turn_on_living_room_lamp_when_sun_sets
-  alias: 'Turn on living room lamp when sun sets'
+- id: turn_on_living_room_lamp_in_the_evening
+  alias: 'Turn on living room lamp in the evening'
   trigger:
-    platform: sun
-    event: sunset
+    platform: numeric_state
+    entity_id: sensor.living_room_multisensor_luminance
+    below: 10
   condition:
     - condition: state
-      entity_id: group.family
+      entity_id: group.all_devices
       state: home
+    - condition: time
+      after: '17:00'
+      before: '23:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.living_room_lamp
+
+- id: turn_on_living_room_lamp_when_someone_arrives
+  alias: 'Turn on living room lamp when someone arrives'
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: home
+  condition:
     - condition: state
       entity_id: light.living_room_lamp
       state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.living_room_multisensor_luminance
+      below: 10
+    - condition: time
+      after: '17:00'
+      before: '23:00'
   action:
     - service: light.turn_on
       entity_id: light.living_room_lamp
