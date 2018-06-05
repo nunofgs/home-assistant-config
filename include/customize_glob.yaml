@@ -1,5 +1,2 @@
-"sensor.*_shutter_exporting_*":
-  hidden: true
-
 "sensor.*_power_*":
   icon: mdi:flash
