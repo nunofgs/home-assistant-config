@@ -305,18 +305,16 @@
     platform: time
     at: '09:30:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-      - condition: state
-        entity_id: group.bedroom_covers
-        state: closed
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: group.bedroom_covers
+      state: closed
   action:
     - service: cover.set_cover_position
       entity_id: group.bedroom_covers
@@ -335,15 +333,13 @@
     platform: time
     at: '13:00:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - sat
-          - sun
-      - condition: state
-        entity_id: group.bedroom_covers
-        state: closed
+    - condition: time
+      weekday:
+        - sat
+        - sun
+    - condition: state
+      entity_id: group.bedroom_covers
+      state: closed
   action:
     - service: cover.set_cover_position
       entity_id: group.bedroom_covers
@@ -362,18 +358,16 @@
     platform: time
     at: '09:30:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-      - condition: state
-        entity_id: group.iness_room_covers
-        state: closed
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: group.iness_room_covers
+      state: closed
   action:
     - service: cover.set_cover_position
       entity_id: group.iness_room_covers
@@ -392,15 +386,13 @@
     platform: time
     at: '13:00:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - sat
-          - sun
-      - condition: state
-        entity_id: group.iness_room_covers
-        state: closed
+    - condition: time
+      weekday:
+        - sat
+        - sun
+    - condition: state
+      entity_id: group.iness_room_covers
+      state: closed
   action:
     - service: cover.set_cover_position
       entity_id: group.iness_room_covers
@@ -461,18 +453,16 @@
     platform: time
     at: '09:30:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-      - condition: state
-        entity_id: group.office_covers
-        state: closed
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: group.office_covers
+      state: closed
   action:
     - service: cover.set_cover_position
       entity_id: group.office_covers
@@ -491,15 +481,13 @@
     platform: time
     at: '13:00:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - sat
-          - sun
-      - condition: state
-        entity_id: group.office_covers
-        state: closed
+    - condition: time
+      weekday:
+        - sat
+        - sun
+    - condition: state
+      entity_id: group.office_covers
+      state: closed
   action:
     - service: cover.set_cover_position
       entity_id: group.office_covers
@@ -626,14 +614,12 @@
     platform: sun
     event: sunset
   condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.family
-        state: home
-      - condition: state
-        entity_id: light.living_room_lamp
-        state: 'off'
+    - condition: state
+      entity_id: group.family
+      state: home
+    - condition: state
+      entity_id: light.living_room_lamp
+      state: 'off'
   action:
     - service: light.turn_on
       entity_id: light.living_room_lamp
