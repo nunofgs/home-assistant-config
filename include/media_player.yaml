@@ -4,9 +4,6 @@
   name: Kodi
   user: !secret media_player_kodi_user
 
-- platform: samsungtv
-  host: !secret media_player_living_room_tv_host
-  mac: !secret media_player_living_room_tv_mac
+- platform: webostv
+  host: 192.168.1.253
   name: Living Room TV
-  port: 8001
-  timeout: 30
