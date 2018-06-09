@@ -613,7 +613,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.living_room_multisensor_luminance
-    below: 10
+    below: 1
   condition:
     - condition: state
       entity_id: group.all_devices
@@ -637,7 +637,7 @@
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.living_room_multisensor_luminance
-      below: 10
+      below: 1
     - condition: time
       after: '17:00'
       before: '23:00'
