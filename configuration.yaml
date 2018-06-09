@@ -20,6 +20,7 @@ homekit:
   auto_start: False
   filter:
     exclude_domains:
+      - automation
       - device_tracker
       - sensor
     exclude_entities:
