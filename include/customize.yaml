@@ -11,6 +11,9 @@ cover.bedroom_left_shutter_level:
 cover.bedroom_right_shutter_level:
   friendly_name: Bedroom right shutter
 
+cover.garage_door:
+  device_class: garage
+
 cover.ines_room_shutter_level:
   friendly_name: Inês's room shutter
 
