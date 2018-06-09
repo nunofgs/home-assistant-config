@@ -563,11 +563,11 @@
     to: 'off'
   condition:
     condition: state
-    entity_id: light.hatvlights
+    entity_id: light.tv_lights
     state: 'on'
   action:
     - service: light.turn_off
-      entity_id: light.hatvlights
+      entity_id: light.tv_lights
 
 - id: turn_off_xmas_lights_at_02_00
   alias: 'Turn off X-mas lights at 02:00'
