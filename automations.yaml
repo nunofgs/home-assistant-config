@@ -525,6 +525,17 @@
       data:
         message: The lights were turned off because nobody is home
 
+- id: turn_off_living_room_ac_at_01_00
+  alias: 'Turn off living room AC at 01:00'
+  trigger:
+    platform: time
+    at: '01:00:00'
+  action:
+    - service: climate.set_operation_mode
+      entity_id: climate.living_room_ac
+      data:
+        operation_mode: idle
+
 - id: turn_off_living_room_lamp_at_23_00
   alias: 'Turn off living room lamp at 23:00'
   trigger:
