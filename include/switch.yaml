@@ -1,6 +1,9 @@
 - platform: mqtt
   name: 3D Printer
   state_topic: /ha-3d-printer/relay/0
-  command_topic: /ha-3d-printer/relay/0
-  payload_on: "1"
-  payload_off: "0"
+  command_topic: /ha-3d-printer/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /ha-3d-printer/status
+  payload_available: 1
+  payload_not_available: 0
