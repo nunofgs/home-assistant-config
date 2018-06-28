@@ -60,13 +60,17 @@
 
 - platform: mqtt
   name: Dryer power usage
-  state_topic: /ha-dryer/power
+  state_topic: ha-dryer/power
+  availability_topic: ha-dryer/status
+  payload_available: 1
+  payload_not_available: 0
   unit_of_measurement: W
+  value_template: '{{ value | float }}'
 
 - platform: mqtt
   name: Home power usage
   state_topic: /ha-breaker-box/energy/PowerWh
-  unit_of_measurement: Wh
+  unit_of_measurement: W
 
 - platform: mqtt
   name: "Nuno's location"
@@ -75,8 +79,12 @@
 
 - platform: mqtt
   name: Washer power usage
-  state_topic: /ha-washer/power
+  state_topic: ha-washer/power
+  availability_topic: ha-washer/status
+  payload_available: 1
+  payload_not_available: 0
   unit_of_measurement: W
+  value_template: '{{ value | float }}'
 
 - platform: octoprint
   name: OctoPrint
