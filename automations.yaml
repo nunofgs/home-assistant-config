@@ -147,6 +147,21 @@
           url: '{{ states.sensor.home_assistant_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'
           caption: The front door was opened after 02:00.
 
+- id: notify_if_front_door_camera_detects_motion
+  alias: 'Notify if front door camera detects motion'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_motion
+    to: 'on'
+  action:
+    service: notify.family
+    data:
+      message: The front door camera has detected motion.
+      data:
+        photo:
+          url: '{{ states.sensor.home_assistant_url.state }}{{ states.camera.front_door.attributes.entity_picture }}'
+          caption: The front door camera has detected motion.
+
 - id: notify_if_front_door_was_opened_and_nobody_is_home
   alias: 'Notify if front door was opened and nobody is home'
   trigger:
