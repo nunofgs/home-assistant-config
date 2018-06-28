@@ -11,6 +11,7 @@ homeassistant:
 
 http:
   api_password: !secret http_api_password
+  use_x_forwarded_for: true
 
 datadog:
   host: !secret datadog_host
