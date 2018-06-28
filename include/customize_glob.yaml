@@ -1,2 +1,2 @@
-"sensor.*_power_*":
+"sensor.*_power*":
   icon: mdi:flash
